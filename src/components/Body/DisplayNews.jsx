@@ -50,7 +50,7 @@ export default class DisplayNews extends React.Component {
                         />
                         </div>
                         <div><h1 key={[2]} id="title">{(sourceData[key].title).slice(0, 60) || 'not available'}</h1></div>
-                        <div><p key={[1]} id="author">Author:&nbsp;&nbsp;{(sourceData[key].author) || 'not available'}</p></div>
+                        <div><p key={[1]} id="author">Author:&nbsp;&nbsp;{(sourceData[key].author).slice(0, 160) || 'not available'}</p></div>
 
                        <div id="description"><p key={[3]}>Description:&nbsp;&nbsp; {(sourceData[key].description) || 'not available'}</p></div>
                         <div><p key={[4]}>
