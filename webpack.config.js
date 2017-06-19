@@ -43,10 +43,13 @@ module.exports = {
           presets: ['es2015', 'react'],
         },
       },
-       {
-        test: /\.(png|jpg|gif)$/,
-        loader: "file-loader?name=img/img-[hash:6].[ext]",
-        },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          'file?hash=sha512&digest=hex&name=[hash].[ext]',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
+        ],
+      } 
     ],
   },
   devServer: {

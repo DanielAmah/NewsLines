@@ -27,20 +27,19 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <div>
-       <nav className="navbar navbar-inverse navbar-fixed-top">
-  <div className="container-fluid">
-    <div className="navbar-header">
-      <a className="navbar-brand" href="#" >NEWS LINK</a>
-    </div>
-    <ul className="nav navbar-nav">
-    </ul>
-    <ul className="nav navbar-nav navbar-right">
-      {this.state.user ?
-      <li onClick={this.logUserOut}><a><span className="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <nav className="navbar navbar-inverse navbar-fixed-top">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <a className="navbar-brand" href="/" >NEWS LINK</a>
+            </div>
+            <ul className="nav navbar-nav" />
+            <ul className="nav navbar-nav navbar-right">
+              {this.state.user ?
+                <li onClick={this.logUserOut}><a><span className="glyphicon glyphicon-log-out"></span> Logout</a></li>
         : null}
-    </ul>
-  </div>
-</nav>
+            </ul>
+          </div>
+        </nav>
       </div>
     );
   }

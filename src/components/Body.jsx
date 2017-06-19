@@ -1,10 +1,10 @@
 import React from 'react';
-import Section1 from './Body/SourceSort.jsx';
+import SourceSort from './Body/SourceSort.jsx';
 
 
 const Body = () => (
   <div>
-    <Section1 />
+    <SourceSort />
     <br />
     <br />
   </div>
