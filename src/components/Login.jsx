@@ -41,7 +41,7 @@ export default class Login extends React.Component {
         },
       });
     } else {
-      window.location.href = '/#/';
+      <Link to={'/'}> / </Link>
     }
   }
   render() {
