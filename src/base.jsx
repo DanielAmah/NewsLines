@@ -6,7 +6,7 @@ import Login from './components/Login.jsx';
 import NotFound from './components/404.jsx';
 import Authstore from '../src/store/AuthStore.js';
 
-export default class Root extends React.Component {
+export default class Base extends React.Component {
   constructor(props) {
     super(props);
     this.state = { info: null };

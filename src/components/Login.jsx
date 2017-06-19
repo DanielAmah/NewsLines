@@ -41,18 +41,17 @@ export default class Login extends React.Component {
         },
       });
     } else {
-      window.location.href = '/#/';
+      <Link to={'/'}> / </Link>
     }
   }
   render() {
     return (
-      <div className="welcome">
+      <div>
         <form>
           <div className="text-center">
             <div className="text-center">
               <img src={img} alt="logo" id="logo" />
               <h2 className="text-center">NEWS LINK</h2>
-              
             </div>
             { this.state.showButton ? false : <p>Get access to latest News, Sign in.</p> }
             { this.state.showButton ? false :

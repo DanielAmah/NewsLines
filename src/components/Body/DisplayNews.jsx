@@ -18,7 +18,11 @@ const TwitterIcon = generateShareIcon('twitter');
 const GooglePlusIcon = generateShareIcon('google');
 const WhatsappIcon = generateShareIcon('whatsapp');
 
-
+/**
+ * @export
+ * @class DisplayNews
+ * @extends {React.Component}
+ */
 export default class DisplayNews extends React.Component {
   constructor(props) {
     super(props);
