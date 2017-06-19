@@ -3,7 +3,7 @@ import NewsSource from './NewsSource.jsx';
 import NewsSort from './NewsSort.jsx';
 import DisplayNews from './DisplayNews.jsx';
 import NewsStore from '../../store/NewsStore';
-import Newsaction from '../../Actions/Newsaction';
+import Newsaction from '../../Actions/NewsAction';
 
 export default class SourceSort extends React.Component {
   constructor(props) {
