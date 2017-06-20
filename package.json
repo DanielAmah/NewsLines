@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/DanielAmah/NewsLines#readme",
   "dependencies": {
+    "babel-eslint": "^7.2.3",
     "coveralls": "^2.13.1",
     "cross-env": "^3.2.4",
     "express": "^4.15.2",
