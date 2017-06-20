@@ -4,7 +4,7 @@ import Layout from './components/Layout.jsx';
 import Body from './components/Body.jsx';
 import Login from './components/Login.jsx';
 import NotFound from './components/404.jsx';
-import Authstore from '../src/store/AuthStore.js';
+import Authstore from '../src/store/AuthStore';
 
 export default class Base extends React.Component {
   constructor(props) {
