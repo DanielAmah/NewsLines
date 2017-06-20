@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/DanielAmah/NewsLines.svg?branch=master)](https://travis-ci.org/DanielAmah/NewsLines)
 [![Coverage Status](https://coveralls.io/repos/github/DanielAmah/NewsLines/badge.svg?branch=master)](https://coveralls.io/github/DanielAmah/NewsLines?branch=master)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)]
+![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)
 
 # NewsLines - Get your News links from 70 news stations around the world.
 
@@ -16,7 +16,7 @@
 +  A live version of the app is deployed on heroku via [here](d0-newslink.herokuapp.com)
 
 ## Front End Dependencies
-+  **[React JS]
++  React JS
 
 ## Installation and setup
 +  Navigate to a directory using your favourite `terminal`.
