@@ -7,7 +7,7 @@
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors ",
     "start": "node app.js",
     "dev": "webpack-dev-server  --history-api-fallback",
-    "test": "jest --coverage -u"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "flux": "^3.1.2",
     "html-webpack-plugin": "^2.28.0",
     "image-webpack-loader": "^3.3.1",
+    "jest": "^20.0.4",
     "mercury-parser": "^1.0.0",
     "node-sass": "^4.5.3",
     "object-assign": "^4.1.1",
