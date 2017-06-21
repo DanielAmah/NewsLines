@@ -2,7 +2,7 @@ language: node_js
 node_js:
  - 'stable'
 after_success:
- - npm install -g codeclimate-test-reporter
- - codeclimate-test-reporter < ./coverage/lcov.info
+ - 'npm install -g codeclimate-test-reporter'
+ - 'codeclimate-test-reporter < ./coverage/lcov.info'
  after_script:
- - ./coverage/lcov.info < ./node_modules/coveralls/bin/coveralls.js
+ - './coverage/lcov.info < ./node_modules/coveralls/bin/coveralls.js'
