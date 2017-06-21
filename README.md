@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/DanielAmah/NewsLines.svg?branch=dev)](https://travis-ci.org/DanielAmah/NewsLines)
-[![Coverage Status](https://coveralls.io/repos/github/DanielAmah/NewsLines/badge.svg?branch=dev)](https://coveralls.io/github/DanielAmah/NewsLines?branch=dev)
+[![Build Status](https://travis-ci.org/DanielAmah/NewsLines.svg?branch=master)](https://travis-ci.org/DanielAmah/NewsLines)
+[![Coverage Status](https://coveralls.io/repos/github/DanielAmah/NewsLines/badge.svg?branch=master)](https://coveralls.io/github/DanielAmah/NewsLines?branch=master)
 ![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)
 
 # NewsLines - Get your News links from 70 news stations around the world.
@@ -13,7 +13,7 @@
       +  Top
       +  Latest
    +  Allow users share news article on social media
-+  A live version of the app is deployed on heroku via [here](d0-newslink.herokuapp.com)
++  A live version of the app is deployed on heroku via [here](https://d0-newslink.herokuapp.com)
 
 ## Front End Dependencies
 +  React JS
