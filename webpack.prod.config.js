@@ -30,7 +30,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production'),
+        NODE_ENV: JSON.stringify('production'),
       },
     }),
     new Dotenv({
@@ -64,13 +64,11 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: "file-loader?name=img/img-[hash:6].[ext]",
-        },
+        loader: 'file-loader?name=img/img-[hash:6].[ext]',
+      },
     ],
   },
   resolveLoader: {
     moduleExtensions: ['-loader'],
   },
 };
-
-
