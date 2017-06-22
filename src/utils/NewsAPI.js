@@ -3,7 +3,7 @@ import NewsServer from '../Actions/NewsServerAction';
 
 export default {
   get(source, sort) {
-    request.get(`https://newsapi.org/v1/articles?source=${source}&sortBy=${sort}&apiKey=213327409d384371851777e7c7f78dfe`)
+    request.get(`https://newsapi.org/v1/articles?source=${source}&sortBy=${sort}&apiKey=` + process.env.API_KEY)
       .set('Accept', 'application/json')
       .end((err, response) => {
         if (err) {
