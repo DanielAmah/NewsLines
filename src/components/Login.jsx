@@ -56,7 +56,7 @@ export default class Login extends React.Component {
             { this.state.showButton ? false : <p>Get access to latest News, Sign in.</p> }
             { this.state.showButton ? false :
             <GoogleLogin
-              clientId="723432734756-bvm7lq0v6gtg5d88vrg2aluqjd7o0lme.apps.googleusercontent.com"
+              clientId={process.env.CLIENT_ID}
               buttonText="Sign In"
               onSuccess={this.googleResponse}
               onFailure={this.googleResponse}
