@@ -8,7 +8,7 @@ import Newsaction from '../../Actions/NewsAction';
 export default class SourceSort extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { source: 'cnn', sort: 'top', info: '', showResults: false };
+    this.state = { source: '', sort: '', info: '', showResults: false };
     this.newSource = this.newSource.bind(this);
     this.newSort = this.newSort.bind(this);
     this.getNews = this.getNews.bind(this);
