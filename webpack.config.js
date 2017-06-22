@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
 const port = 8080;
 
@@ -62,6 +63,10 @@ module.exports = {
         warnings: false,
       },
     }),
+    new Dotenv({
+      path: './.env',
+      safe: false
+    })
   ],
   resolveLoader: {
     moduleExtensions: ['-loader'],
