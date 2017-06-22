@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/DanielAmah/NewsLines.svg?branch=master)](https://travis-ci.org/DanielAmah/NewsLines)
-[![Coverage Status](https://coveralls.io/repos/github/DanielAmah/NewsLines/badge.svg?branch=master)](https://coveralls.io/github/DanielAmah/NewsLines?branch=master)
+[![Build Status](https://travis-ci.org/DanielAmah/NewsLines.svg?branch=dev)](https://travis-ci.org/DanielAmah/NewsLines)
+[![Coverage Status](https://coveralls.io/repos/github/DanielAmah/NewsLines/badge.svg?branch=dev)](https://coveralls.io/github/DanielAmah/NewsLines?branch=dev)
 ![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)
 
 # NewsLines - Get your News links from 70 news stations around the world.
