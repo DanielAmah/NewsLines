@@ -1,5 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+/**
+ * @export
+ * @class NewsSort
+ * @extends {React.Component}
+ * Get the sort value from the select input and pass to a handleChange method.
+ */
 
 
 export default class NewsSort extends React.Component {

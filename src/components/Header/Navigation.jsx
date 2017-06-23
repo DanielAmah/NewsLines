@@ -1,7 +1,12 @@
 import React from 'react';
 import Authstore from '../../store/AuthStore';
 import LogoutAction from '../../Actions/LogoutAction';
-
+/**
+ * @export
+ * @class Navigation
+ * @extends {React.Component}
+ * The Logout Action changes the state of the user
+ */
 
 export default class Navigation extends React.Component {
   constructor(props) {

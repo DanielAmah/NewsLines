@@ -1,7 +1,13 @@
 import React from 'react';
 import request from 'superagent';
 import PropTypes from 'prop-types';
-
+/**
+ * @export
+ * @class NewsSource
+ * @extends {React.Component}
+ * get sources from the API call to a select input
+ * pass the selected value to a handle change method.
+ */
 export default class NewsSource extends React.Component {
   constructor(props) {
     super(props);

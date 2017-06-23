@@ -4,11 +4,17 @@ import NewsSort from './NewsSort.jsx';
 import DisplayNews from './DisplayNews.jsx';
 import NewsStore from '../../store/NewsStore';
 import Newsaction from '../../Actions/NewsAction';
+/**
+ * @export
+ * @class SourceSort
+ * @extends {React.Component}
+ * Get the values of sources and sort and send an action to retrieve articles from the store.
+ */
 
 export default class SourceSort extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { source: '', sort: '', info: '', showResults: false };
+    this.state = { source: '', sort: '', info: '' };
     this.newSource = this.newSource.bind(this);
     this.newSort = this.newSort.bind(this);
     this.getNews = this.getNews.bind(this);
@@ -18,7 +24,7 @@ export default class SourceSort extends React.Component {
     NewsStore.addChangeListener(this.onChange);
   }
   onChange() {
-    this.setState({ info: NewsStore.getList(), showResults: true });
+    this.setState({ info: NewsStore.getList(), Results: true });
   }
   getNews() {
     Newsaction.receiveArticle(this.state.source, this.state.sort);
@@ -50,7 +56,7 @@ export default class SourceSort extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.showResults ? <DisplayNews data={this.state.info} /> : null}
+        {this.state.Results ? <DisplayNews data={this.state.info} /> : null}
       </div>
     );
   }

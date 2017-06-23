@@ -5,6 +5,11 @@ import GoogleLogin from 'react-google-login';
 import AuthAction from '../Actions/AuthAction';
 import Authstore from '../store/AuthStore';
 import img from '../img/share.png';
+/**
+ * @export
+ * @class Login
+ * @extends {React.Component}
+ */
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -41,7 +46,7 @@ export default class Login extends React.Component {
         },
       });
     } else {
-      <Link to={'/'}> / </Link>
+      <Link to={'/'}>/</Link>;
     }
   }
   render() {

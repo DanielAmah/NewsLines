@@ -1,5 +1,9 @@
 const Dispatcher = require('flux').Dispatcher;
 
+/**
+ * Dispatches action
+ */
+
 const dispatcher = new Dispatcher();
 
 dispatcher.handleViewAction = function articles(action) {

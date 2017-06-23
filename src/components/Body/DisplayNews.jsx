@@ -22,6 +22,7 @@ const WhatsappIcon = generateShareIcon('whatsapp');
  * @export
  * @class DisplayNews
  * @extends {React.Component}
+ * Display News from API server call. Loop through the response and display news
  */
 export default class DisplayNews extends React.Component {
   constructor(props) {

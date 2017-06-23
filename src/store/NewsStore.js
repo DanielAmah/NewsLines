@@ -2,6 +2,9 @@ import ObjectAssign from 'object-assign';
 import dispatcher from '../dispatcher';
 import Constants from '../constants/constants';
 
+/**
+ * emit an event and update the article state.
+ */
 const EventEmitter = require('events').EventEmitter;
 
 

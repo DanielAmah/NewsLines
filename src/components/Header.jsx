@@ -1,9 +1,11 @@
 import React from 'react';
-import Nav from './Header/Navigation.jsx';
-
+import Navigation from './Header/Navigation.jsx';
+/**
+ * Pass Navigation as a child component to Header
+ */
 const Header = () => (
   <div>
-    <Nav />
+    <Navigation />
   </div>
 );
 export default Header;

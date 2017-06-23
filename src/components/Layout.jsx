@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header.jsx';
 import Footer from './Footer/Footer.jsx';
+/**
+ * pass all props children to layout
+ */
 
 const Layout = props => (
   <div>

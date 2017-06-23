@@ -6,6 +6,13 @@ import Login from './components/Login.jsx';
 import NotFound from './components/404.jsx';
 import Authstore from '../src/store/AuthStore';
 
+/**
+ * @export
+ * @class Base
+ * @extends {React.Component}
+ * Authenticate user based on user state
+ */
+
 export default class Base extends React.Component {
   constructor(props) {
     super(props);
