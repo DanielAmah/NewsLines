@@ -1,45 +1,52 @@
-import ObjectAssign from 'object-assign';
-import dispatcher from '../dispatcher';
-import Constants from '../constants/constants';
+import { EventEmitter } from 'events';
 
-const EventEmitter = require('events').EventEmitter;
+import Dispatcher from '../dispatcher';
+import * as constants from '../constants/constants';
 
-
-const CHANGE_EVENT = 'change';
-
-const store = {
-  list: null,
-};
-
-
-const NewsStore = ObjectAssign({}, EventEmitter.prototype, {
-
-  addChangeListener(cb) {
-    this.on(CHANGE_EVENT, cb);
-  },
-  removeChangeListener(cb) {
-    this.removeListener(CHANGE_EVENT, cb);
-  },
-  getList() {
-    return store;
-  },
-  listInfo() {
-    return store.list;
-  },
-});
-
-dispatcher.register((payload) => {
-  const action = payload.action;
-  const newArticle = action.response;
-  switch (action.actionType) {
-    case Constants.NEW_NEWS:
-      store.list = newArticle;
-      NewsStore.emit(CHANGE_EVENT);
-      break;
-
-    default:
-      return true;
+/**
+ * @class NewsStore
+ * @extends {EventEmitter}
+ */
+class NewsStore extends EventEmitter {
+  /**
+   * Creates an instance of NewsStore.
+   * @memberof NewsStore
+   */
+  constructor() {
+    super();
+    this.articles = [];
   }
-});
 
-export default NewsStore;
+  /**
+  * @method getArticle
+  * @return {array} - returns an array of articles
+  */
+  getArticles() {
+    return this.articles;
+  }
+
+  /**
+  * @method updateArticles
+  * @param {any} action
+  * @return {void}
+  * Listens to actions from the dispatcher
+  * runs actions relevant to NewsStore
+  * Emits a change event
+  */
+  updateArticles(action) {
+    switch (action.type) {
+      case constants.NEW_NEWS:
+        this.articles = action.articles;
+        this.emit('changes');
+        break;
+      default:
+        break;
+    }
+  }
+}
+
+// Creates an subclass of NewsStore
+const newsStore = new NewsStore();
+// Registers the store to recieve actions from the dispatcher
+Dispatcher.register(newsStore.updateArticles.bind(newsStore));
+export default newsStore;
