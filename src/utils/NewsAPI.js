@@ -1,16 +1,19 @@
-import request from 'superagent';
-import NewsServer from '../Actions/NewsServerAction';
+import axios from 'axios';
+/**
+ * @class NewsApi
+ */
+class NewsApi {
+  /**
+   * @static
+   * @param {any} link - Takes in a link parameter
+   * @memberof NewsApi
+   * @return {Promise} - Returns a promise
+   */
+  static get(link) {
+    return axios
+      .get(link)
+      .then(response => response.data);
+  }
+}
 
-export default {
-  get(source, sort) {
-    request.get(`https://newsapi.org/v1/articles?source=${source}&sortBy=${sort}&apiKey=` + process.env.API_KEY)
-      .set('Accept', 'application/json')
-      .end((err, response) => {
-        if (err) {
-          return (err);
-        }
-        return NewsServer.receiveArticle(response.body);
-      });
-  },
-};
-
+export default NewsApi;
