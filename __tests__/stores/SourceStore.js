@@ -1,15 +1,15 @@
 /* global expect jest describe it beforeEach */
 import dispatcher from '../../src/dispatcher';
 import mockApi from '../../__mocks__/MockApi.json';
-import NewsStore from '../../src/store/NewsStore';
+import SourceStore from '../../src/store/SourceStore';
 
 jest.mock('../../src/dispatcher');
-describe('News Store', () => {
+describe('Sources Store', () => {
   let callback;
 
-  const articles = {
-    type: 'NEW_NEWS',
-    articles: mockApi
+  const sources = {
+    type: 'GET_SOURCES',
+    sources: mockApi
   };
 
   beforeEach(() => {
@@ -20,13 +20,13 @@ describe('News Store', () => {
     expect(dispatcher.register.mock.calls.length).toBe(1);
   });
 
-  it('should initialize with no article', () => {
-    expect(NewsStore.articles.length).toBe(0);
+  it('should initialize with no sources', () => {
+    expect(SourceStore.getSources().length).toBe(0);
   });
 
   it('should return the appropraite result', () => {
-    callback(articles);
-    expect(NewsStore.getArticles().length).toBe(10);
-    expect(NewsStore.getArticles()).toEqual(mockApi);
+    callback(sources);
+    expect(SourceStore.getSources().length).toBe(10);
+    expect(SourceStore.getSources()).toEqual(mockApi);
   });
 });

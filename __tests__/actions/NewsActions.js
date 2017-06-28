@@ -1,38 +1,42 @@
+/* global expect jest test */
 import dispatcher from '../../src/dispatcher';
-import NewsAction from '../../src/Actions/NewsAction';
-import NewsServerAction from '../../src/Actions/NewsServerAction';
-import AuthAction from '../../src/Actions/AuthAction';
-import LogoutAction from '../../src/Actions/LogoutAction';
+import * as NewsAction from '../../src/Actions/NewsAction';
+import newsApi from '../../src/utils/NewsApi';
 
-import API from '../../src/utils/NewsAPI';
-
+// Mock the dispatcher and NewsApi.
 jest.mock('../../src/dispatcher');
-jest.mock('../../src/utils/NewsAPI');
+jest.mock('../../src/utils/NewsApi');
 
-const NewsAPIGet = API.get;
+// Setup the actual mock functions for the relevant functions.
+// const dispatch = dispatcher.dispatch.mock;
 
-NewsAPIGet.mockReturnValue(Promise.resolve({ data: 'info from API' }));
+const newsApiGet = newsApi.get;
 
-describe('Receive info Action', () => {
-  test('', () => {
-    NewsAction.receiveArticle();
-    expect(NewsAPIGet.mock.calls.length).toBe(1);
+newsApiGet.mockReturnValue(Promise.resolve({ data: 'This is the data' }));
+const dispatchSpy = jest.spyOn(dispatcher, 'dispatch');
+
+describe('NewsActions', () => {
+  test('should call newsActions.getSources() on getSources', () => {
+    NewsAction.getSources();
+    expect(newsApiGet.mock.calls.length).toBe(1);
   });
-  test('', () => {
-    NewsServerAction.receiveArticle();
-    expect(NewsAPIGet.mock.calls.length).toBe(1);
+
+  test('should call newsActions.getArticles()', () => {
+    NewsAction.getArticles();
+    expect(newsApiGet.mock.calls.length).toBe(2);
   });
-});
 
-describe('Auth Action', () => {
-  test('gets a user', () => {
-    expect(AuthAction.getUser());
+  test('should dispatch appropriate action type when called', () => {
+    NewsAction.getSources();
+    const action = dispatchSpy.mock.calls[0][0];
+    expect(dispatchSpy).toHaveBeenCalled();
+    expect(action.type).toEqual('GET_SOURCES');
   });
-});
 
-
-describe('Logout Action', () => {
-  it('gets a user', () => {
-    expect(LogoutAction.logout());
+  test('should dispatch appropriate action type when called', () => {
+    NewsAction.getArticles();
+    const action = dispatchSpy.mock.calls[0][0];
+    expect(dispatchSpy).toHaveBeenCalled();
+    expect(action.type).toEqual('GET_SOURCES');
   });
 });

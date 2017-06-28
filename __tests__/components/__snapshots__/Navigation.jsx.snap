@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav Component should match the Nav snapshot 1`] = `
+<Navigation
+  info={
+    Object {
+      "imageURL": "",
+      "name": "",
+    }
+  }
+>
+  <div>
+    <nav
+      className="navbar navbar-inverse navbar-fixed-top"
+    >
+      <div
+        className="container-fluid"
+      >
+        <div
+          className="navbar-header"
+        >
+          <a
+            className="navbar-brand"
+            href="#!"
+          >
+            News Link
+          </a>
+        </div>
+        <ul
+          className="nav navbar-nav"
+        >
+          <li />
+        </ul>
+        <ul
+          className="nav navbar-nav navbar-right"
+        >
+          <li>
+             
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</Navigation>
+`;

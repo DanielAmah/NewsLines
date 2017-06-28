@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsSort Component should match the NewsSort snapshot 1`] = `
+<option
+  value=""
+/>
+`;
