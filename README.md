@@ -15,6 +15,9 @@
    +  Allow users share news article on social media
 +  A live version of the app is deployed on heroku via [here](https://d0-newslink.herokuapp.com)
 
+## What does the Application do
+Newsline is an online news feed application that give you latest information from different news stations around the world. In the application is a link to view the news on the original website.
+
 ## Front End Dependencies
 +  React JS
 
@@ -45,6 +48,8 @@
 ## How to contribute
 To contribute, fork this repo to your private repository and create a pull request based on the feature you want to add.
 
+## Frequently asked questions(FAQ)
+Issues and frequently asked question are handled here. For questions, create an issue. [here](https://github.com/DanielAmah/NewsLines/issues)
 
 ## License
 
