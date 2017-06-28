@@ -1,5 +1,5 @@
 module.exports = {
   NEW_NEWS: 'NEW_NEWS',
-  AUTH: 'AUTH',
-  LOGOUT: 'LOGOUT',
+  SOURCES: 'GET_SOURCES',
+  ERRORS: 'GET_ERRORS',
 };
