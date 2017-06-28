@@ -1,56 +1,52 @@
 import React from 'react';
-import request from 'superagent';
 import PropTypes from 'prop-types';
 
-export default class NewsSource extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.state = { source: 'cnn', newsSources: [] };
-  }
-  componentDidMount() {
-    this.serverRequest = request.get('https://newsapi.org/v1/sources?language=en')
-    .end((error, response) => {
-      if (error) {
-        return error;
-      }
-      this.setState({
-        newsSources: response.body.sources,
-        source: response.body.sources[0].id,
-      });
-      return response.body;
-    });
-  }
-
-
-  handleChange(event) {
-    this.setState({
-      source: event.target.value,
-    });
-    this.props.getSource(event.target.value);
+// Sources Component
+/**
+ * @class Sources
+ * @extends {React.Component}
+ */
+class NewsSource extends React.Component {
+  handleQueryValue(href) {
+    this.context.router.push(href);
   }
   render() {
-    const source = this.state.newsSources.map(sources =>
-               (
-                 <option key={sources.id} value={sources.id}> {sources.name} </option>
-               ),
-        );
+    const { name, description, id, sortBysAvailable } = this.props;
+    const link = `/news?name=${name}&id=${id}&sorts=${sortBysAvailable}`;
     return (
-      <div className="form-group text-center">
-        <label htmlFor>Sources</label>
-        <div className="col-sm-12">
-          <select
-            defaultValue={this.state.source}
-            onChange={this.handleChange}
-            className="form-control"
-          >
-            {source}
-          </select>
-        </div>
+      <div className="col-md-3" id="source">
+        <center><h3 className="sourceTitle">{name}</h3></center>
+        <center><p>{description.slice(0, 50)}...</p></center>
+        <center>
+        <button
+          className="btn btn-danger"
+          onClick={this.handleQueryValue.bind(this, link)}
+        >
+          View Headlines
+        </button>
+        </center>
       </div>
     );
   }
 }
-NewsSource.propTypes = {
-  getSource: PropTypes.func.isRequired,
+
+// Set default Props
+NewsSource.defaultProps = {
+  name: '',
+  description: '',
+  id: '',
+  sortBysAvailable: []
 };
+
+NewsSource.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  id: PropTypes.string,
+  sortBysAvailable: PropTypes.array
+};
+
+NewsSource.contextTypes = {
+  router: PropTypes.object
+};
+
+export default NewsSource;

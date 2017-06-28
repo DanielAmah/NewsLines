@@ -1,83 +1,68 @@
+/* global location localStorage window*/
 import React from 'react';
-import { Link } from 'react-router';
-
 import GoogleLogin from 'react-google-login';
-import AuthAction from '../Actions/AuthAction';
-import Authstore from '../store/AuthStore';
+import * as NewsAction from '../Actions/NewsAction';
+import Error from './Error';
+
 import img from '../img/share.png';
 
-export default class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { credentials: {
-      email: '',
-      name: '',
-    },
-      info: '',
-      showButton: false,
-    };
-    this.googleResponse = this.googleResponse.bind(this);
-    this.onChange = this.onChange.bind(this);
-  }
-  componentDidMount() {
-    Authstore.addChangeListener(this.onChange);
-  }
-  onChange() {
-    this.setState({ info: Authstore.getUser() });
-  }
-  componentDidUnMount() {
-    Authstore.removeChangeListener(this.onChange);
-  }
-  googleResponse(response) {
-    AuthAction.getUser(response.profileObj);
-    const user = response.profileObj;
-    if (response) {
-      this.setState({
-        showButton: true,
-        info: user,
-        credentials: {
-          email: user.email,
-          name: user.name,
-        },
-      });
-    } else {
-      <Link to={'/'}> / </Link>
-    }
-  }
-  render() {
-    return (
-      <div>
-        <form>
-          <div className="text-center">
-            <div className="text-center">
+const Login = () => {
+  /**
+   * @function responseSuccess
+   * @param {any} googleUser - Response object
+   * Saves user profile to localStorage
+   * reloads the page
+   */
+
+  const responseSuccess = (googleUser) => {
+    const profile = googleUser.getBasicProfile();
+    localStorage.setItem(
+      'User',
+      JSON.stringify({
+        iD: profile.getId(),
+        name: profile.getName(),
+        imageURL: profile.getImageUrl(),
+        email: profile.getEmail()
+      })
+    );
+    location.reload();
+  };
+  // Assigns the client Id to the id variable
+  const id = process.env.CLIENT_ID;
+  /**
+   * @function responseFailure
+   * @param {Object} response -Response object
+   * console logs the error
+   */
+
+  const responseFailure = (response) => {
+    NewsAction.getFailed('Failed to Log In, Please try again');
+  };
+  return (
+    <div>
+      <div className="text-center">
+       <div className="text-center">
               <img src={img} alt="logo" id="logo" />
               <h2 className="text-center">NEWS LINK</h2>
             </div>
-            { this.state.showButton ? false : <p>Get access to latest News, Sign in.</p> }
-            { this.state.showButton ? false :
+            <p>Get access to latest News, Sign in.</p>
             <GoogleLogin
-              clientId={process.env.CLIENT_ID}
-              buttonText="Sign In"
-              onSuccess={this.googleResponse}
-              onFailure={this.googleResponse}
-            ><i className="fa fa-google-plus" />
-              <span> Login</span>
-            </GoogleLogin> }
-            {this.state.showButton ? <p className="text-center">Welcome back!, {this.state.info.name} <br />
-            </p>
-            : null}
-            { this.state.showButton ? <div className="col-md-12">
-              <Link to={'news'}><button
-                className="btn btn-danger"
+              clientId={id}
+              tag="span"
+              onSuccess={responseSuccess}
+              onFailure={responseFailure}
+            >
+              <span
+               className="googlelogin"
+                name="action"
               >
-                <b>READ NEWS</b>
-              </button>
-              </Link>
-            </div> : null
-             }
-          </div>
-        </form>
-      </div>
-    );
-  }
-}
+                <i className="fa fa-google-plus" /> 
+                &nbsp; &nbsp;Login
+              </span>
+            </GoogleLogin>
+               </div>
+    </div>
+  );
+};
+
+export default Login;

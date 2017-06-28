@@ -1,46 +1,70 @@
+/* global location localStorage document $*/
 import React from 'react';
-import Authstore from '../../store/AuthStore';
-import LogoutAction from '../../Actions/LogoutAction';
+import { IndexLink, Link, browserHistory } from 'react-router';
+import PropTypes from 'prop-types';
+/**
+ * @class Navigation
+ * @extends {React.Component}
+ */
+class Navigation extends React.Component {
+  constructor() {
+    super();
+    this.logout = this.logout.bind(this);
+  }
+  /**
+   * Logs out user from website
+   * @param {event} event Takes in onClick event
+   * @return {void}
+   */
+  logout(event) {
+    event.preventDefault();
+    localStorage.removeItem('User');
+    browserHistory.replace('/');
+    location.reload();
+  }
 
-
-export default class Navigation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: false,
-    };
-    this.onChange = this.onChange.bind(this);
-    this.logUserOut = this.logUserOut.bind(this);
-  }
-  componentDidMount() {
-    Authstore.addChangeListener(this.onChange);
-  }
-  onChange() {
-    this.setState({ user: true, info: Authstore.getUser() });
-  }
-  componentDidUnMount() {
-    Authstore.removeChangeListener(this.onChange);
-  }
-  logUserOut() {
-    LogoutAction.logout(this.state.user);
-  }
   render() {
-    return (
+      
+    return ( 
       <div>
-        <nav className="navbar navbar-inverse navbar-fixed-top">
+        <nav className="navbar navbar-inverse navbar-top">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="/" >NEWS LINK</a>
+              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>                        
+              </button>
+            <a className="navbar-brand" href="#!">News Link</a>
             </div>
-            <ul className="nav navbar-nav" />
-            <ul className="nav navbar-nav navbar-right">
-              {this.state.user ?
-                <li onClick={this.logUserOut}><a><span className="glyphicon glyphicon-log-out"></span> Logout</a></li>
-        : null}
+             <div className="collapse navbar-collapse" id="myNavbar">
+            <ul className="nav navbar-nav">
+              <li>{localStorage.User ? <IndexLink to="/">Sources</IndexLink> : null}</li>
             </ul>
+            <ul className="nav navbar-nav navbar-right">
+              <li>{localStorage.User ? <Link to="/logout" onClick={this.logout}>Logout</Link> : null} </li>
+            </ul>
+              </div>
           </div>
         </nav>
       </div>
     );
   }
 }
+
+// Set Default Props
+Navigation.defaultProps = {
+  info: {
+    imageURL: '',
+    name: ''
+  }
+};
+// Set Props
+Navigation.propTypes = {
+  info: PropTypes.object,
+  imageURL: PropTypes.string,
+  name: PropTypes.string
+};
+
+export default Navigation;
+

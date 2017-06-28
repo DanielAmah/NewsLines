@@ -1,23 +1,29 @@
+/* global localStorage*/
 import React from 'react';
-import PropTypes from 'prop-types';
-import Header from './Header.jsx';
-import Footer from './Footer/Footer.jsx';
+import PropTypes from 'react-router';
 
-const Layout = props => (
-  <div>
-    <Header />
-    <br />
-    <br />
-    <br />
-    {props.children}
-    <Footer />
-  </div>
-);
+import Navigation from './Header/Navigation';
+import Footer from './Footer/Footer';
+import Error from './Error';
 
-Layout.propTypes = {
-  children: PropTypes.oneOfType([
-    React.PropTypes.arrayOf(React.PropTypes.node),
-    React.PropTypes.node,
-  ]).isRequired,
+const Layout = (props) => {
+  const userInfo = JSON.parse(localStorage.getItem('User'));
+  return (
+    <div>
+      <Navigation info={userInfo} />
+      <Error />
+      {props.children}
+      <br/>
+      <br/>
+      <br/>
+      <Footer />
+    </div>
+  );
 };
+
+// Set Default Props
+Layout.defaultProps = {
+  children: ''
+};
+
 export default Layout;
