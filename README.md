@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/DanielAmah/NewsLines.svg?branch=dev)](https://travis-ci.org/DanielAmah/NewsLines)
 [![Coverage Status](https://coveralls.io/repos/github/DanielAmah/NewsLines/badge.svg?branch=dev)](https://coveralls.io/github/DanielAmah/NewsLines?branch=dev)
+[![Code Climate](https://codeclimate.com/github/DanielAmah/NewsLines/badges/gpa.svg)](https://codeclimate.com/github/DanielAmah/NewsLines)
+[![Issue Count](https://codeclimate.com/github/DanielAmah/NewsLines/badges/issue_count.svg)](https://codeclimate.com/github/DanielAmah/NewsLines)
 ![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)
 
 # NewsLines - Get your News links from 70 news stations around the world.
