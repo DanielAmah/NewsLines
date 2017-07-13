@@ -1,6 +1,12 @@
 import React from 'react';
 
-
+/**
+ * @description renders the footer components
+ * @export
+ * @class Footer
+ * @extends {React.Component}
+ * @returns {nav} returns a footer navbar
+ */
 export default class Footer extends React.Component {
   render() {
     return (

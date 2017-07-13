@@ -2,7 +2,7 @@
 import newsApi from '../../src/utils/NewsApi';
 
 describe('News Api Axios Call', () => {
-  test('should returns a promise resolve from the Api', () => {
+  test('should return a promise resolve from the Api', () => {
     const spy = jest.spyOn(newsApi, 'get');
     const articles = newsApi.get();
 

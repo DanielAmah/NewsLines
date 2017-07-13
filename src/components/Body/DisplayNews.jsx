@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import Share from './Share';
 
 /**
+ * @function - DisplayNews
  * @param {any} props
- * @returns
+ * @returns {div}
  */
 
 const DisplayNews = (props) => {
@@ -36,14 +37,18 @@ const DisplayNews = (props) => {
   );
 };
 
-// Set Default Props
+/**
+ * Default props
+ */
 DisplayNews.defaultProps = {
   urlToImage: '',
   description: '',
   title: '',
   url: ''
 };
-// Set Props
+/**
+ * Set Props
+ */
 DisplayNews.propTypes = {
   urlToImage: PropTypes.string,
   description: PropTypes.string,

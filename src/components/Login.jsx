@@ -1,34 +1,28 @@
-/* global location localStorage window*/
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 import * as NewsAction from '../Actions/NewsAction';
 import Error from './Error';
 
 import img from '../img/share.png';
-
+/**
+ * @function Login
+ */
 const Login = () => {
   /**
    * @function responseSuccess
-   * @param {any} googleUser - Response object
-   * Saves user profile to localStorage
-   * reloads the page
+   * @param {any} user - Response object
+   * @description Saves user token to localStorage
    */
 
-  const responseSuccess = (googleUser) => {
-    const profile = googleUser.getBasicProfile();
+const responseSuccess = (user) =>{
+    const userToken = user.tokenId;
     localStorage.setItem(
-      'User',
-      JSON.stringify({
-        iD: profile.getId(),
-        name: profile.getName(),
-        imageURL: profile.getImageUrl(),
-        email: profile.getEmail()
-      })
+      'userToken', userToken
     );
-    location.reload();
-  };
-  // Assigns the client Id to the id variable
+  }
+  
   const id = process.env.CLIENT_ID;
+
   /**
    * @function responseFailure
    * @param {Object} response -Response object

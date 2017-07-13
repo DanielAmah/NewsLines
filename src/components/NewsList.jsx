@@ -1,4 +1,4 @@
-/* global localStorage*/
+
 import React from 'react';
 
 import PropTypes from 'prop-types';
@@ -8,8 +8,10 @@ import NewsSort from './Body/NewsSort.jsx';
 import DisplayNews from './Body/DisplayNews.jsx';
 
 /**
- * @class ArticleList
+ * @description get the list of news articles
+ * @class NewsList
  * @extends {React.Component}
+ * @constructor  set state for articles to empty array
  */
 class NewsList extends React.Component {
   constructor(props) {
@@ -79,10 +81,13 @@ class NewsList extends React.Component {
       articles: articlesStore.getArticles()
     });
   }
+  /**
+   * @description map through sortBy to get the sort values
+   * @returns 
+   * @memberof NewsList
+   */
   render() {
-    // maps through sortsBy array and passes props to dropdown component
     const sorted = this.sortsBy.map((sort, index) => (<NewsSort key={index} value={sort} text={sort} />));
-    // maps through articles array and passes props to Articles component
     const singleArticles = this.state.articles.map(article => (
       <DisplayNews key={article.publishedAt + article.title} {...article} />
     ));
@@ -119,7 +124,9 @@ class NewsList extends React.Component {
     );
   }
 }
-
+/**
+ * Default props
+ */
 NewsList.defaultProps = {
   location: {
     query: {
@@ -128,6 +135,9 @@ NewsList.defaultProps = {
   }
 };
 
+/**
+ * Set Props
+ */
 NewsList.propTypes = {
   location: PropTypes.object
 };

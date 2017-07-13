@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Sources Component
 /**
  * @class Sources
  * @extends {React.Component}
+ * @param {string}
+ * @returns {sources} a div with source title and sources description
  */
 class NewsSource extends React.Component {
   handleQueryValue(href) {
@@ -29,8 +30,9 @@ class NewsSource extends React.Component {
     );
   }
 }
-
-// Set default Props
+/**
+ * Default props
+ */
 NewsSource.defaultProps = {
   name: '',
   description: '',
@@ -38,6 +40,9 @@ NewsSource.defaultProps = {
   sortBysAvailable: []
 };
 
+/**
+ * Default props 
+ */
 NewsSource.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
@@ -45,6 +50,9 @@ NewsSource.propTypes = {
   sortBysAvailable: PropTypes.array
 };
 
+/**
+ * Set Props
+ */
 NewsSource.contextTypes = {
   router: PropTypes.object
 };
