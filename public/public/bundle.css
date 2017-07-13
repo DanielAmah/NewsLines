@@ -47,27 +47,14 @@ html {
   display: inline-block;
   vertical-align: top; }
 
-.col-md-6 img {
+.ArticleImg img {
   margin: auto;
   display: block;
   width: 100%;
   height: 250px; }
 
 #articles {
-  background-color: #000;
-  margin-bottom: 10px;
-  padding: 10px;
-  max-height: 650px;
-  width: 600px;
-  text-align: center;
-  display: block; }
-
-.col-md-6:nth-child(odd) {
-  margin-right: 5px;
-  margin-left: 30px; }
-
-.col-md-6 {
-  height: 650px; }
+  text-align: center; }
 
 #title {
   color: yellow; }
@@ -83,5 +70,33 @@ html {
   margin-left: 45px;
   margin-right: 30px; }
 
-#News {
-  margin-bottom: 60px; }
+#singleArticle:nth-child(odd) {
+  background-color: #000;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: #684F86 solid 10px; }
+
+#singleArticle:nth-child(even) {
+  background-color: #000;
+  margin-bottom: 30px;
+  padding: 10px; }
+
+.col-md-2 {
+  cursor: pointer;
+  cursor: hand; }
+
+.googlelogin {
+  opacity: 1; }
+
+#source {
+  background-color: #000;
+  padding: 5px;
+  border: #684F86 solid 5px; }
+
+.sourceTitle {
+  color: #F5D76E; }
+
+.ArticleTitle h1 {
+  color: #F5D76E; }
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwdWJsaWMvYnVuZGxlLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/

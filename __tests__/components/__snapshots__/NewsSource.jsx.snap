@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sources Component should match the sources snapshot 1`] = `
+<NewsSource
+  description=""
+  id=""
+  name=""
+  sortBysAvailable={Array []}
+>
+  <div
+    className="col-md-3"
+    id="source"
+  >
+    <center>
+      <h3
+        className="sourceTitle"
+      />
+    </center>
+    <center>
+      <p>
+        ...
+      </p>
+    </center>
+    <center>
+      <button
+        className="btn btn-danger"
+        onClick={[Function]}
+      >
+        View Headlines
+      </button>
+    </center>
+  </div>
+</NewsSource>
+`;

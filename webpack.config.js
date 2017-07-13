@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
@@ -8,14 +7,9 @@ const port = 8080;
 
 const outputPath = path.join(__dirname, 'public');
 
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './index.html',
-  filename: 'index.html',
-  inject: 'body',
-});
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'inline-sourcemap',
   entry: './src/index.jsx',
   output: {
     path: outputPath,
@@ -37,17 +31,17 @@ module.exports = {
           presets: ['es2015', 'react'],
         },
       },
-      { test: /\.jsx$/,
+      { test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
           presets: ['es2015', 'react'],
         },
       },
-       {
+      {
         test: /\.(png|jpg|gif)$/,
-        loader: "file-loader?name=img/img-[hash:6].[ext]",
-        },
+        loader: 'file-loader?name=img/img-[hash:6].[ext]',
+      },
     ],
   },
   devServer: {
@@ -55,7 +49,6 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    HtmlWebpackPluginConfig,
     new ExtractTextPlugin('public/bundle.css'),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
@@ -71,4 +64,7 @@ module.exports = {
   resolveLoader: {
     moduleExtensions: ['-loader'],
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
 };

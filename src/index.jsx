@@ -1,9 +1,27 @@
+/* global document localStorage*/
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Base from './base.jsx';
+import ReactDom from 'react-dom';
+import { Router, Route, browserHistory } from 'react-router';
 
+import NewsList from './components/NewsList.jsx';
+import SourceSort from './components/Body/SourceSort';
+import Layout from './components/Layout.jsx';
+import Login from './components/Login.jsx';
 import './styles/style.scss';
 
-const main = document.getElementById('main');
+// Gets element with id:app
+const app = document.getElementById('main');
 
-ReactDOM.render(<Base />, main);
+// Renders in the react DOM
+ReactDom.render(
+  <Router history={browserHistory}>
+    <Route component={Layout}>
+      <Route path="/" component={localStorage.User ? SourceSort : Login} />
+      <Route
+        path="news"
+        component={localStorage.User ? NewsList : Login}
+      />
+    </Route>
+  </Router>,
+  app
+);

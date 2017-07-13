@@ -1,17 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: 'public/index.html',
-  filename: 'index.html',
-  inject: 'body',
-});
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'inline-sourcemap',
   entry: './src/index.jsx',
   output: {
     path: path.join(__dirname, 'public'),
@@ -20,7 +14,7 @@ module.exports = {
   },
 
 
-  plugins: [HtmlWebpackPluginConfig,
+  plugins: [
     new ExtractTextPlugin('public/bundle.css'),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
@@ -30,7 +24,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production'),
+        NODE_ENV: JSON.stringify('production'),
       },
     }),
     new Dotenv({
@@ -64,13 +58,14 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: "file-loader?name=img/img-[hash:6].[ext]",
-        },
+        loader: 'file-loader?name=img/img-[hash:6].[ext]',
+      },
     ],
   },
   resolveLoader: {
     moduleExtensions: ['-loader'],
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
 };
-
-

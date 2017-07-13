@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SourceList Component should match the SourceList component snapshot 1`] = `
+<SourceSort>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="form-group"
+      >
+        <input
+          className="form-control"
+          id="sources"
+          onChange={[Function]}
+          placeholder="Search for sources"
+          type="text"
+        />
+      </div>
+    </div>
+    <div>
+      <div />
+    </div>
+  </div>
+</SourceSort>
+`;
