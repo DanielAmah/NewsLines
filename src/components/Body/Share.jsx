@@ -5,7 +5,11 @@ import {
   generateShareIcon,
 } from 'react-share';
 
-
+/**
+ * @description declares share button variables
+ * @method {void}
+ * @returns {void}
+ */
 const {
   FacebookShareButton,
   GooglePlusShareButton,
@@ -19,8 +23,9 @@ const GooglePlusIcon = generateShareIcon('google');
 const WhatsappIcon = generateShareIcon('whatsapp');
 
 /**
+ * @function Share
  * @param {any} props
- * @returns
+ * @returns{div} sharebuttons
  */
 
 const Share = (props) => {
@@ -78,12 +83,17 @@ const Share = (props) => {
                         </div>
                          );
                       };
-
+/**
+ * Default Props
+ */
 Share.defaultProps = {
   share: '',
   title: ''
 };
 
+/**
+ * Set props
+ */
 Share.propTypes = {
   share: PropTypes.string,
   title: PropTypes.string

@@ -3,8 +3,10 @@ import { EventEmitter } from 'events';
 import Dispatcher from '../dispatcher';
 import * as constants from '../constants/constants';
 /**
+ * @description store error message
  * @class ErrorStore
  * @extends {EventEmitter}
+ * @returns {void}
  */
 class ErrorStore extends EventEmitter {
   /**
@@ -42,9 +44,9 @@ class ErrorStore extends EventEmitter {
     }
   }
 }
-
-// Creates an instance of ErrorStore
+/**
+ * Register error store to dispatcher
+ */
 const errorStore = new ErrorStore();
-// Registers the store to recieve actions from the dispatcher
 Dispatcher.register(errorStore.updateErrors.bind(errorStore));
 export default errorStore;

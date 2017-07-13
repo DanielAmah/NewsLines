@@ -4,8 +4,11 @@ import Dispatcher from '../dispatcher';
 import * as constants from '../constants/constants';
 
 /**
+ * @description Store news list and pass them to the display news component
  * @class NewsStore
  * @extends {EventEmitter}
+ * @constructor set initial state of an empty array
+ * @return {void}
  */
 class NewsStore extends EventEmitter {
   /**
@@ -45,8 +48,9 @@ class NewsStore extends EventEmitter {
   }
 }
 
-// Creates an subclass of NewsStore
+/**
+ * Register newsstore to dispatcher
+ */
 const newsStore = new NewsStore();
-// Registers the store to recieve actions from the dispatcher
 Dispatcher.register(newsStore.updateArticles.bind(newsStore));
 export default newsStore;

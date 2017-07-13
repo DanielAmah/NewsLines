@@ -1,11 +1,13 @@
-/* global location localStorage document $*/
 import React from 'react';
 import { IndexLink, Link, browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
 /**
+ * @description 
  * @class Navigation
  * @extends {React.Component}
- */
+ * @constructor
+ * @returns {nav} return navbar
+ */ 
 class Navigation extends React.Component {
   constructor() {
     super();
@@ -13,6 +15,7 @@ class Navigation extends React.Component {
   }
   /**
    * Logs out user from website
+   * @method {logout}
    * @param {event} event Takes in onClick event
    * @return {void}
    */
@@ -52,14 +55,18 @@ class Navigation extends React.Component {
   }
 }
 
-// Set Default Props
+/**
+ * Default Props
+ */
 Navigation.defaultProps = {
   info: {
     imageURL: '',
     name: ''
   }
 };
-// Set Props
+/**
+ * Set Props
+ */
 Navigation.propTypes = {
   info: PropTypes.object,
   imageURL: PropTypes.string,

@@ -1,6 +1,8 @@
 import axios from 'axios';
 /**
+ * @description  make api calls using axios
  * @class NewsApi
+ * @returns {Promise} a promise
  */
 class NewsApi {
   /**

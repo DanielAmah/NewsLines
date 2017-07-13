@@ -3,6 +3,12 @@ import Dispatcher from '../dispatcher';
 import NewsApi from '../utils/NewsApi';
 import * as constants from '../constants/constants';
 
+/**
+ * getError: function getFailed message
+ * @function getFailed
+ * @param {String} error
+ * @return {void}
+ */
 export const getFailed = (error) => {
   Dispatcher.dispatch({
     type: constants.ERRORS,
@@ -14,7 +20,7 @@ export const getFailed = (error) => {
 /**
  * Gets the list of sources from Api
  * @function getSources - Dispatches it to the stores
- * @return {void}
+ * @return {Promise}
  */
 
 export const getSources = () => {

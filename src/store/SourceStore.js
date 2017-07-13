@@ -3,8 +3,11 @@ import { EventEmitter } from 'events';
 import Dispatcher from '../dispatcher';
 import * as constants from '../constants/constants';
 /**
+ * @description store news sources from the api call.
  * @class SourcesStore
  * @extends {EventEmitter}
+ * @constructor
+ * @return {void}
  */
 class SourcesStore extends EventEmitter {
   /**
@@ -45,8 +48,9 @@ class SourcesStore extends EventEmitter {
   }
 }
 
-// Creates an instance of SourcesStore
+/**
+ * register sources store to dispatcher
+ */
 const sourcesStore = new SourcesStore();
-// Registers the store to recieve actions from the dispatcher
 Dispatcher.register(sourcesStore.updateSources.bind(sourcesStore));
 export default sourcesStore;

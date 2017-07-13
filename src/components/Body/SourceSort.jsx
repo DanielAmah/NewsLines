@@ -5,9 +5,10 @@ import * as NewsAction from '../../Actions/NewsAction';
 import NewsSource from './NewsSource';
 
 /**
- * @export
  * @class SourceSort
  * @extends {React.Component}
+ * @description renders and filter sources
+ * @returns {input} a search input and renders the sources components
  */
 export default class SourceSort extends React.Component {
   constructor() {
@@ -78,10 +79,14 @@ export default class SourceSort extends React.Component {
       searchTerm: event.target.value
     });
   }
-
+/**
+ * 
+ * @description maps through the sources.
+ * @returns 
+ * @memberof SourceSort
+ */
   render() {
     const { sources } = this.state;
-    // maps through sources array and passes props to Sources component
     const SourcesComponents = sources.map(source => (
       <NewsSource key={source.id} {...source} />
     ));

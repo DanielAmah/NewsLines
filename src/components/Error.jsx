@@ -2,9 +2,11 @@ import React from 'react';
 import errorStore from '../store/ErrorStore';
 
 /**
+ * @description an error component to display if news is not rendered.
  * @export
  * @class Error
  * @extends {React.Component}
+ * @constructor set state
  */
 export default class Error extends React.Component {
   constructor() {
@@ -37,7 +39,7 @@ export default class Error extends React.Component {
   }
 
   /**
-   * @method getSources - Sets the state of Error component to data retrieve
+   * @method getError - Sets the state of Error component to data retrieve
    * from errorStore
    * @return {void}
    */

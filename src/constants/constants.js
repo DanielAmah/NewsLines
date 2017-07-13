@@ -1,3 +1,6 @@
+/**
+ * Set Constants
+ */
 module.exports = {
   NEW_NEWS: 'NEW_NEWS',
   SOURCES: 'GET_SOURCES',
