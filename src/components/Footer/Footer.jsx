@@ -1,12 +1,10 @@
 import React from 'react';
 
 /**
- * @description renders the footer components
- * @export
- * @class Footer
- * @extends {React.Component}
- * @returns {nav} returns a footer navbar
- */
+* @class {Footer}
+* @param  {function} export default class Footer extends React.Component { {display the footer}
+* @return {string} {a footer navigation showing the author and the news api label}
+*/
 export default class Footer extends React.Component {
   render() {
     return (

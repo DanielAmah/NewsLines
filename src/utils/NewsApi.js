@@ -7,7 +7,7 @@ import axios from 'axios';
 class NewsApi {
   /**
    * @static
-   * @param {any} link - Takes in a link parameter
+   * @param {string} link - Takes in a link parameter
    * @memberof NewsApi
    * @return {Promise} - Returns a promise
    */

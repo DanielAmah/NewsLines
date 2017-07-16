@@ -3,11 +3,11 @@ import { EventEmitter } from 'events';
 import Dispatcher from '../dispatcher';
 import * as constants from '../constants/constants';
 /**
- * @description store news sources from the api call.
  * @class SourcesStore
  * @extends {EventEmitter}
  * @constructor
  * @return {void}
+ * @description store news sources from the api call.
  */
 class SourcesStore extends EventEmitter {
   /**
@@ -30,7 +30,7 @@ class SourcesStore extends EventEmitter {
 
   /**
   * @method updateSources
-  * @param {any} action
+  * @param {string} action
   * @return {void}
   * Listens to actions from the dispatcher
   * runs actions relevant to NewsStore
