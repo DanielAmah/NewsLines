@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import Share from './Share';
 
 /**
- * @function - DisplayNews
- * @param {any} props
- * @returns {div}
- */
-
+* @function DisplayNews
+* @param  {string} props {pass in a props which is the url to the image, description, title and url}
+* @return {string} { a list of of title, description and url from the news Api}
+*/
 const DisplayNews = (props) => {
   const { urlToImage, description, title, url } = props;
   return (
@@ -38,17 +37,22 @@ const DisplayNews = (props) => {
 };
 
 /**
- * Default props
- */
+* @function {DisplayNews}
+* @param  {string} DisplayNews.defaultProps = { {set default props}
+* @return {string} {empty string}
+*/
 DisplayNews.defaultProps = {
   urlToImage: '',
   description: '',
   title: '',
   url: ''
 };
+
 /**
- * Set Props
- */
+* @function {DisplayNews}
+* @param  {string} DisplayNews.propTypes = { {set display news props types}
+* @return {string} {an object referencing the property types}
+*/
 DisplayNews.propTypes = {
   urlToImage: PropTypes.string,
   description: PropTypes.string,

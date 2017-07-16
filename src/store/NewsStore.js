@@ -4,11 +4,11 @@ import Dispatcher from '../dispatcher';
 import * as constants from '../constants/constants';
 
 /**
- * @description Store news list and pass them to the display news component
  * @class NewsStore
  * @extends {EventEmitter}
- * @constructor set initial state of an empty array
+ * @constructor set initial state of article to an empty array
  * @return {void}
+ * @description Store news list and pass them to the display news component
  */
 class NewsStore extends EventEmitter {
   /**
@@ -30,7 +30,7 @@ class NewsStore extends EventEmitter {
 
   /**
   * @method updateArticles
-  * @param {any} action
+  * @param {string} action
   * @return {void}
   * Listens to actions from the dispatcher
   * runs actions relevant to NewsStore

@@ -6,11 +6,12 @@ import Error from './Error';
 import img from '../img/share.png';
 /**
  * @function Login
+ * @return {function} - onsuccess and onfailure
  */
 const Login = () => {
   /**
    * @function responseSuccess
-   * @param {any} user - Response object
+   * @param {object} user - Response object
    * @description Saves user token to localStorage
    */
 
@@ -26,7 +27,7 @@ const responseSuccess = (user) =>{
   /**
    * @function responseFailure
    * @param {Object} response -Response object
-   * console logs the error
+   * @description executes the getFailed method with an argument 'failed to log in, please try again'
    */
 
   const responseFailure = (response) => {

@@ -8,10 +8,10 @@ import NewsSort from './Body/NewsSort.jsx';
 import DisplayNews from './Body/DisplayNews.jsx';
 
 /**
- * @description get the list of news articles
  * @class NewsList
  * @extends {React.Component}
  * @constructor  set state for articles to empty array
+ * @description get the list of news articles
  */
 class NewsList extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class NewsList extends React.Component {
 
   /**
    * @method componentDidMount - Runs after the page has been rendered
-   * @return {void}
+   * @return {string}
    * Retrieves query values from the props and assigns them to
    * instance variables
    * Makes an action call to get list of sources from the Api
@@ -53,17 +53,15 @@ class NewsList extends React.Component {
    * @return {void}
    * Removes changes Listener from the articlesStore
    */
-
   componentWillUnmount() {
     articlesStore.removeListener('changes', this.article);
   }
 
   /**
    * @method onChange - Listens for an event and makes an action call to the Api
-   * @param {event} event -Takes in an event parameter
+   * @param {string} event -Takes in an event parameter
    * @return {void}
    */
-
   onChange(event) {
     const value = event.target.value;
     NewsAction.getArticles(this.id, value);
@@ -75,7 +73,6 @@ class NewsList extends React.Component {
    * data retrieve from articlesStore
    * @return {void}
    */
-
   getArticle() {
     this.setState({
       articles: articlesStore.getArticles()
@@ -124,9 +121,11 @@ class NewsList extends React.Component {
     );
   }
 }
+
 /**
- * Default props
- */
+* @param  {object} NewsList.defaultProps = { { set default props}
+* @return {object} {set default prop to top}
+*/
 NewsList.defaultProps = {
   location: {
     query: {
@@ -136,8 +135,9 @@ NewsList.defaultProps = {
 };
 
 /**
- * Set Props
- */
+* @param  {object} NewsList.propTypes = { {set proptypes}
+* @return {object} {a key value pair showing proptypes of object for location}
+*/
 NewsList.propTypes = {
   location: PropTypes.object
 };

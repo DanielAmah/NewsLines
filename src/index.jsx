@@ -10,6 +10,7 @@ import './styles/style.scss';
 
 
 const app = document.getElementById('main');
+
 /**
  * @description Google authorisation url to verify user email.
  */

@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * @class Sources
- * @extends {React.Component}
- * @param {string}
- * @returns {sources} a div with source title and sources description
- */
+* @function
+* @param  {function} class NewsSource extends React.Component { {a class that displays the news sources}
+* @return {string} {a list of news sources with source title and description}
+*/
 class NewsSource extends React.Component {
   handleQueryValue(href) {
     this.context.router.push(href);
@@ -31,8 +30,10 @@ class NewsSource extends React.Component {
   }
 }
 /**
- * Default props
- */
+* 
+* @param  {object} NewsSource.defaultProps = { {set default props}
+* @return {object} {a key value pair showing empty value props}
+*/
 NewsSource.defaultProps = {
   name: '',
   description: '',
@@ -41,8 +42,9 @@ NewsSource.defaultProps = {
 };
 
 /**
- * Default props 
- */
+* @param  {object} NewsSource.propTypes = { {set datatype for props}
+* @return {object} {a key value pair showing the datatype for props}
+*/
 NewsSource.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
@@ -51,8 +53,9 @@ NewsSource.propTypes = {
 };
 
 /**
- * Set Props
- */
+* @param  {object} NewsSource.contextTypes = { {use router value of object}
+* @return {object} {shows router datatype of object}
+*/
 NewsSource.contextTypes = {
   router: PropTypes.object
 };

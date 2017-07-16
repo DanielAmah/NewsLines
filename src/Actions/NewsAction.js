@@ -3,12 +3,12 @@ import Dispatcher from '../dispatcher';
 import NewsApi from '../utils/NewsApi';
 import * as constants from '../constants/constants';
 
+
 /**
- * getError: function getFailed message
- * @function getFailed
- * @param {String} error
- * @return {void}
- */
+* @function getFailed
+* @param  {string} error {pass in an error argument as a parameter}
+* @return {string} {returns a message 'Failed to Load Page, Please Try Again}
+*/
 export const getFailed = (error) => {
   Dispatcher.dispatch({
     type: constants.ERRORS,
@@ -18,11 +18,9 @@ export const getFailed = (error) => {
 };
 
 /**
- * Gets the list of sources from Api
- * @function getSources - Dispatches it to the stores
- * @return {Promise}
- */
-
+* @function getSources
+* @return {Promise} {return a promise, resolve the promise and dispatch it to the sources store}
+*/
 export const getSources = () => {
   const link = 'https://newsapi.org/v1/sources';
   NewsApi
@@ -40,12 +38,11 @@ export const getSources = () => {
 };
 
 /**
- * @function getArticles - Gets the list of articles from selected source
- * @param {string} source Source for article selection
- * @param {string} sortBy SortBy for article
- * @return {void}
- */
-
+* @function getArticles
+* @param  {string} source {pass in the source as a parameter in the Api call}
+* @param  {type} sortBy {pass in sortBy as a parameter in the Api call}
+* @return {promise} {returns a promise that is resolved and dispatched to teh article store}
+*/
 export const getArticles = (source, sortBy) => {
   const api = 'https://newsapi.org/v1/articles?source=';
   const key = process.env.API_KEY;

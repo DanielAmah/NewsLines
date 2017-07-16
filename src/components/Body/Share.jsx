@@ -6,10 +6,10 @@ import {
 } from 'react-share';
 
 /**
- * @description declares share button variables
- * @method {void}
- * @returns {void}
- */
+*
+* @param  {string} const { {declare all sharebutton variables and assign a value of sharebuttons}
+* @return {void}
+*/
 const {
   FacebookShareButton,
   GooglePlusShareButton,
@@ -17,17 +17,21 @@ const {
   WhatsappShareButton,
 } = ShareButtons;
 
+/**
+* @function Declare multiple function
+* @param  {function} 'facebookicon',twittericon,googleicon, whatsappicon {declare generateshareicon}
+* @return {void}
+*/
 const FacebookIcon = generateShareIcon('facebook');
 const TwitterIcon = generateShareIcon('twitter');
 const GooglePlusIcon = generateShareIcon('google');
 const WhatsappIcon = generateShareIcon('whatsapp');
 
 /**
- * @function Share
- * @param {any} props
- * @returns{div} sharebuttons
- */
-
+* @function Share
+* @param  {string} props {pass share and title as props to the share function}
+* @return {string} {returns the url, title and icon for declared functions above}
+*/
 const Share = (props) => {
   const shareUrl = props.share;
   const title = props.title;
@@ -84,16 +88,18 @@ const Share = (props) => {
                          );
                       };
 /**
- * Default Props
- */
+* @param  {object} Share.defaultProps = { {set default props}
+* @return {object} {a key value pair showing empty values for props}
+*/
 Share.defaultProps = {
   share: '',
   title: ''
 };
 
 /**
- * Set props
- */
+* @param  {object} Share.propTypes = { {set prop type}
+* @return {object} {set prop datatypes}
+*/
 Share.propTypes = {
   share: PropTypes.string,
   title: PropTypes.string

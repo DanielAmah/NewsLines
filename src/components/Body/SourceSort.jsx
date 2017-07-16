@@ -5,11 +5,11 @@ import * as NewsAction from '../../Actions/NewsAction';
 import NewsSource from './NewsSource';
 
 /**
- * @class SourceSort
- * @extends {React.Component}
- * @description renders and filter sources
- * @returns {input} a search input and renders the sources components
- */
+* @class {SourceSort}
+* @param  {function} export default class SourceSort extends React.Component { {sourcesort an extension of the react.component}
+* @constructor set initial state of sources.
+* @return {string} {return sources sort component with a filtering to filter through news sources}
+*/
 export default class SourceSort extends React.Component {
   constructor() {
     super();
@@ -22,13 +22,11 @@ export default class SourceSort extends React.Component {
     this.filter = this.filterSources.bind(this);
   }
 
-  /**
-   * @method componentDidMount - Runs after the page has been rendered
-   * @return {void}
-   * Makes an action call to get list of sources from the Api
-   * Listens for a change event from the sourcesStore
-   */
-
+/**
+* @method componentDidMount - runs after the component mounts
+* @return {void} 
+* executes NewsAction.getSources() function to get the sources from the source store
+*/
   componentDidMount() {
     NewsAction.getSources();
     sourcesStore.on('changes', this.sources);
@@ -39,7 +37,6 @@ export default class SourceSort extends React.Component {
    * @return {void}
    * Removes changes Listener from the sourcesStore
    */
-
   componentWillUnmount() {
     sourcesStore.removeListener('changes', this.sources);
   }
@@ -47,9 +44,8 @@ export default class SourceSort extends React.Component {
   /**
    * @method getSources - Sets the state of Sources to data retrieve
    * from sourcesStore
-   * @return {void}
+   * @return {object}
    */
-
   getSources() {
     this.setState({
       sources: sourcesStore.getSources()
@@ -63,7 +59,6 @@ export default class SourceSort extends React.Component {
    * Maps through lists of articles retrieved from the sourcesStore
    * Sets the sources State to the search result
    */
-
   filterSources(event) {
     const searchList = [];
     sourcesStore.getSources().map((source) => {
@@ -79,10 +74,10 @@ export default class SourceSort extends React.Component {
       searchTerm: event.target.value
     });
   }
+
 /**
- * 
  * @description maps through the sources.
- * @returns 
+ * @return {string} returns an HTML input for filter through the news sources and the sources component
  * @memberof SourceSort
  */
   render() {

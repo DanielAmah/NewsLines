@@ -1,24 +1,23 @@
 import React from 'react';
 import { IndexLink, Link, browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
+
 /**
- * @description 
- * @class Navigation
- * @extends {React.Component}
- * @constructor
- * @returns {nav} return navbar
- */ 
+* @class{Navigation}
+* @param  {function} class Navigation extends React.Component { {displays the navigation bar}
+* @return {string} {returns a navigation bar with sources and a logout button}
+*/
 class Navigation extends React.Component {
   constructor() {
     super();
     this.logout = this.logout.bind(this);
   }
-  /**
-   * Logs out user from website
-   * @method {logout}
-   * @param {event} event Takes in onClick event
-   * @return {void}
-   */
+
+/**
+* @method {logout} - remove user from local storage
+* @param  {string} event {onclick event to logout a user}
+* @description {remove user from localstorage}
+*/
   logout(event) {
     event.preventDefault();
     localStorage.removeItem('User');
@@ -56,17 +55,20 @@ class Navigation extends React.Component {
 }
 
 /**
- * Default Props
- */
+* @param  {object} Navigation.defaultProps = { {set default props}
+* @return {object} {set empty values for props}
+*/
 Navigation.defaultProps = {
   info: {
     imageURL: '',
     name: ''
   }
 };
+
 /**
- * Set Props
- */
+* @param  {object} Navigation.propTypes = { {set prop types}
+* @return {object} {a key value pair showing props data type}
+*/
 Navigation.propTypes = {
   info: PropTypes.object,
   imageURL: PropTypes.string,
